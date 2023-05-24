@@ -28,7 +28,7 @@ replacement_dict = {
     "不": "B",
     "溜": "L",
     "恩": "N",
-    "括弧": "{",
+    "括弧": "{"
 }
 
 for key, value in replacement_dict.items():
