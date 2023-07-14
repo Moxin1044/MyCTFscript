@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 
 # 字体文件路径
-font_path = 'font/FZSTK.TTF'
+font_path = 'font/simsun.ttc'
 # 设置字体和字号
 font_size = 64
 font = ImageFont.truetype(font_path, size=font_size)
@@ -17,7 +17,7 @@ def draw_char(char):
     # 在画布中心写字
     bbox = draw.textbbox((0, 0), char, font=font)
     x = (canvas_size[0] - bbox[2] - bbox[0]) // 2 - bbox[0]
-    y = (canvas_size[1] - bbox[3] - bbox[1]) // 2 - bbox[1] + 14
+    y = (canvas_size[1] - bbox[3] - bbox[1]) // 2 - bbox[1] + 5
     draw.text((x, y), char, font=font, fill=(0, 0, 0))
 
     # 转换成numpy数组

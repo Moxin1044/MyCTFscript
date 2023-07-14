@@ -1,4 +1,4 @@
-original_text = "QSNCTF{VME50OK?}"
+original_text = ""
 replacement_dict = {
     "幺": "1",
     "两": "2",
@@ -9,7 +9,7 @@ replacement_dict = {
     "拐": "7",
     "八": "8",
     "勾": "9",
-    "洞": "10",
+    "洞": "0",
     "可艾": "K",
     "艾一": "A",
     "斯一": "C",
@@ -40,7 +40,9 @@ replacement_dict = {
     "恩": "N",
     "括弧": "{",
     "反括弧": "}",
-    "横杠": "-"
+    "横杠": "-",
+    "下划线": "_",
+    "问": "?"
 }
 
 for key, value in replacement_dict.items():
