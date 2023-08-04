@@ -24,8 +24,8 @@ def get_qsnctf_session():
         soup = BeautifulSoup(response.text, 'html.parser')
         nonce_value = soup.find('input', {'id': 'nonce'})['value']
         login_data = {
-            'name': '用户名',
-            'password': '密码',
+            'name': 'DemoUser1',
+            'password': 'DemoUser1',
             '_submit': '登录',
             'nonce': nonce_value
         }
