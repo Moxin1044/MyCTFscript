@@ -47,7 +47,7 @@ def get_qsnctf_session():
         return cookies  # 因为下面可以直接将这里变为Cookie
 
 
-def get_login_user_info(cookies):
+def format_challenges(cookies):
     url = "https://www.qsnctf.com/api/v1/challenges"
     cookies = cookies
     burp0_headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0",
@@ -67,4 +67,4 @@ def get_login_user_info(cookies):
     return "解析题目失败"
 
 
-print(get_login_user_info(get_qsnctf_session()))
+print(format_challenges(get_qsnctf_session()))
