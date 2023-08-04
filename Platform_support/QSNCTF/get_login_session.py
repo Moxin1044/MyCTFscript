@@ -9,10 +9,6 @@ burp0_headers = {"Cache-Control": "max-age=0", "Sec-Ch-Ua": "\"Chromium\";v=\"10
 response = requests.get("https://www.qsnctf.com/login", headers=burp0_headers)
 if response.status_code == 200:
     cookies = response.cookies
-    session = ""
-    for name, value in cookies.items():
-        if name == "session":
-            session = value
     soup = BeautifulSoup(response.text, 'html.parser')
     nonce_value = soup.find('input', {'id': 'nonce'})['value']
     login_data = {
@@ -21,7 +17,7 @@ if response.status_code == 200:
         '_submit': '登录',
         'nonce': nonce_value
     }
-    burp0_cookies = {"session": session}
+    burp0_cookies = cookies
     burp0_headers = {"Cache-Control": "max-age=0", "Sec-Ch-Ua": "\"Chromium\";v=\"109\", \"Not_A Brand\";v=\"99\"",
                      "Sec-Ch-Ua-Mobile": "?0", "Sec-Ch-Ua-Platform": "\"Windows\"", "Upgrade-Insecure-Requests": "1",
                      "Origin": "https://www.qsnctf.com", "Content-Type": "application/x-www-form-urlencoded",

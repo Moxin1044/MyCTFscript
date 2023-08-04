@@ -47,8 +47,7 @@ def get_qsnctf_session():
         elif response.status_code == 302:
             # 获取Cookie信息
             cookies = response.cookies
-            session_value = cookies.get('session')
-        return session_value
+        return cookies  # 因为下面可以直接将这里变为Cookie
 
 
 def reading(cookies):
@@ -123,5 +122,6 @@ def reading(cookies):
             a[2].text) + "\n分数：" + str(
             a[3].text) + " 题数：" + str(a[4].text)
     return first + "\n" + second + "\n" + third + texts
+
 
 print(reading(get_qsnctf_session()))
