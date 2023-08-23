@@ -30,7 +30,7 @@ def save_to_txt(ip_set, filename):
 
 
 if __name__ == '__main__':
-    start_ip = '10.0.0.1'
-    end_ip = '10.0.0.5'
+    start_ip = '10.0.1.1'
+    end_ip = '10.0.1.5'
     ip_set = generate_ip_range(start_ip, end_ip)
     save_to_txt(ip_set, '10.0.0.1-10.0.0.5.txt')
