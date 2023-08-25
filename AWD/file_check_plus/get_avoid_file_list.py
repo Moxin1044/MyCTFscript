@@ -1,6 +1,7 @@
 import paramiko
 from stat import S_ISDIR
 
+
 def save_file_paths(client, sftp, path, f):
     for item in sftp.listdir_attr(path):
         if S_ISDIR(item.st_mode):
@@ -8,6 +9,7 @@ def save_file_paths(client, sftp, path, f):
         else:
             file_path = path + '/' + item.filename
             f.write(file_path + '\n')
+
 
 def get_file_paths(hostname, username, password, directory_path):
     try:
@@ -22,9 +24,10 @@ def get_file_paths(hostname, username, password, directory_path):
     finally:
         client.close()
 
-hostname = '30.10.1.22'
-username = 'ctf'
-password = 's6jpf3n0'
+
+hostname = 'ip'
+username = 'username'
+password = 'password'
 directory_path = '/var/www/html'
 
 get_file_paths(hostname, username, password, directory_path)

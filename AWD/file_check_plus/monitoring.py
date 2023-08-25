@@ -57,9 +57,9 @@ def monitor_directory_changes(hostname, username, password, directory_path):
         client.close()
 
 
-hostname = '30.10.1.22'
-username = 'ctf'
-password = 's6jpf3n0'
+hostname = 'ip'
+username = 'username'
+password = 'password'
 directory_path = '/var/www/html'
 
 monitor_directory_changes(hostname, username, password, directory_path)
