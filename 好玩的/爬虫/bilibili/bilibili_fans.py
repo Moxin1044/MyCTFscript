@@ -73,5 +73,5 @@ else:
             # 如果相同，则无需更新
             print(f"{filename} is up to date.")
     else:
-        rint(f"无法获取数据，请检查脚本和网络。")
+        print(f"无法获取数据，请检查脚本和网络。")
 
