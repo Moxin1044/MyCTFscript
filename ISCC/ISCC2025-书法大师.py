@@ -1,6 +1,6 @@
 from strokes import strokes
 import base64
-text = "生工 石色 太摔 少比 边乙 *****************"
+text = "乐女 边关 少旗 切片 右乙 女上 没中 切晚 市宵 尖着 男金 正乐 关贝 正市 走片 杏巾 自又 丙耳 片蓝 大马 早老 兄乙 工睡 工数"
 pairs = text.split()
 
 base = ""
