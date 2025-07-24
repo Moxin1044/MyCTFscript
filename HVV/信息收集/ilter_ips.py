@@ -13,18 +13,36 @@ def load_ips_from_file(file_path):
     final_ips = set()
 
     for item in ip_candidates:
-        if '-' in item:
-            try:
+        try:
+            # 处理CIDR格式（如192.168.1.0/24）
+            if '/' in item and not item.startswith('http'):
+                network = ipaddress.ip_network(item, strict=False)
+                for ip in network.hosts():
+                    final_ips.add(str(ip))
+            # 处理IP范围格式（如192.168.1.1-192.168.1.100）
+            elif '-' in item and item.count('.') >= 6:
+                start_ip, end_ip = item.split('-')
+                start = ipaddress.ip_address(start_ip.strip())
+                end = ipaddress.ip_address(end_ip.strip())
+                current = start
+                while current <= end:
+                    final_ips.add(str(current))
+                    current += 1
+            # 处理简写范围格式（如192.168.1.1-100）
+            elif '-' in item and item.count('.') == 3:
                 ip_prefix = ".".join(item.split('.')[:3])
                 start = int(item.split('.')[-1].split('-')[0])
                 end = int(item.split('.')[-1].split('-')[1])
                 for i in range(start, end + 1):
                     full_ip = f"{ip_prefix}.{i}"
                     final_ips.add(full_ip)
-            except:
-                continue
-        else:
-            final_ips.add(item)
+            # 单个IP
+            else:
+                # 验证是否为有效IP地址
+                ipaddress.ip_address(item)
+                final_ips.add(item)
+        except:
+            continue
 
     return sorted(final_ips)
 
