@@ -40,7 +40,7 @@ except ImportError:
 
 # --- 配置信息 ---
 CONFIG = {
-    "api_key": "sk-or-********,  # 在这里填入你的OpenRouter API密钥
+    "api_key": "sk-or-********",  # 在这里填入你的OpenRouter API密钥
     "base_url": "https://openrouter.ai/api/v1",
     "model": "qwen/qwen3-coder:free",
     "referer": "IDA_Pro_Script",
